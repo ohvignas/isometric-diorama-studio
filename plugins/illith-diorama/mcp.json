@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "blender-lab": {
+      "type": "stdio",
+      "command": "blender-mcp",
+      "args": [],
+      "env": {
+        "BLENDER_MCP_HOST": "127.0.0.1",
+        "BLENDER_MCP_PORT": "9876"
+      }
+    },
+    "tripo-api": {
+      "type": "stdio",
+      "command": "tripo",
+      "args": [
+        "mcp",
+        "--toolset",
+        "full"
+      ]
+    }
+  }
+}

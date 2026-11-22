@@ -1,0 +1,7 @@
+{
+  "scene": "Atelier",
+  "metres_par_unite": 1,
+  "controles": [
+    {"nom":"Bureau assemblé", "type":"objet_fixe", "objet":"Plateau", "debut":73, "fin":144, "limites":{"excursion_mm":0.1,"rotation_deg":0.01}}
+  ]
+}

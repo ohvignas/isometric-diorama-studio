@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mouvements humains dans Blender"
+  short_description: "Animer et vérifier des personnages Tripo dans Blender"
+  default_prompt: "Utilise $blender-tripo-mouvement pour animer ce personnage à partir du mouvement de référence et vérifier ses appuis."

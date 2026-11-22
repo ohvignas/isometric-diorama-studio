@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr" data-apple-alpha="true">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atelier miniature</title>
+<style>
+  :root {font-family:system-ui;color:#25252a;background:#f4f1ec}
+  main {max-width:72rem;margin:4vh auto}
+  figure {position:relative;aspect-ratio:16/9;margin:0}
+  video {position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+  #loop {opacity:0}
+  button {font:inherit;padding:.6em 1em}
+</style>
+<main>
+  <figure aria-label="La maquette se construit, puis le personnage travaille au bureau.">
+    <video id="intro" muted playsinline preload="none" poster="poster.webp"></video>
+    <video id="loop" muted playsinline loop preload="none"></video>
+  </figure>
+  <button id="toggle" type="button">Lire</button>
+</main>
+<script type="module">
+const intro = document.querySelector('#intro');
+const loop = document.querySelector('#loop');
+const button = document.querySelector('#toggle');
+const candidates = [
+  {ext:'webm', type:'video/webm; codecs="vp9"', probe:'test-alpha.webm'},
+  {ext:'alpha.mp4', type:'video/mp4; codecs="hvc1"', probe:'test-alpha-hevc.mp4'}
+];
+let active = intro;
+let paused = matchMedia('(prefers-reduced-motion: reduce)').matches || navigator.connection?.saveData === true;
+let visible = false;
+let selection;
+let extension;
+function wantsPlayback() {return !paused && visible && !document.hidden}
+async function hasAlpha({type,probe}) {
+  const video = document.createElement('video');
+  if (!video.canPlayType(type)) return false;
+  video.muted = true;
+  video.playsInline = true;
+  video.preload = 'auto';
+  let timer;
+  try {
+    await new Promise((resolve,reject) => {
+      timer = setTimeout(reject, 1800);
+      video.onloadeddata = resolve;
+      video.onerror = reject;
+      video.src = probe;
+    });
+    const canvas = document.createElement('canvas');
+    canvas.width = 96; canvas.height = 64;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(video,0,0,96,64);
+    return ctx.getImageData(2,2,1,1).data[3] < 12 && ctx.getImageData(48,32,1,1).data[3] > 235;
+  } catch {return false} finally {
+    clearTimeout(timer);
+    video.onloadeddata = video.onerror = null;
+    video.removeAttribute('src');
+    video.load();
+  }
+}
+async function choose() {
+  for (const candidate of candidates) {
+    if (candidate.ext === 'alpha.mp4' && document.documentElement.dataset.appleAlpha !== 'true') continue;
+    if (await hasAlpha(candidate)) return candidate.ext;
+  }
+  return 'mp4';
+}
+function label() {button.textContent = active.paused ? 'Lire' : 'Pause'}
+async function sync() {
+  if (!wantsPlayback()) {active.pause(); label(); return}
+  selection ??= choose();
+  extension = await selection;
+  if (!wantsPlayback()) return;
+  if (!intro.src) intro.src = 'film.' + extension;
+  try {await active.play()} catch {if (wantsPlayback()) paused = true}
+  label();
+}
+function prepareLoop() {
+  if (extension && !loop.src) {
+    loop.src = 'boucle.' + extension;
+    loop.preload = 'auto';
+    loop.load();
+  }
+}
+intro.addEventListener('timeupdate', () => {
+  if (intro.duration - intro.currentTime < 5) prepareLoop();
+});
+intro.addEventListener('ended', () => {
+  prepareLoop();
+  active = loop;
+  const reveal = () => {loop.style.opacity = '1'; intro.style.opacity = '0'};
+  if ('requestVideoFrameCallback' in loop) loop.requestVideoFrameCallback(reveal);
+  else loop.addEventListener('playing', reveal, {once:true});
+  sync();
+});
+button.onclick = () => {paused = !active.paused; sync()};
+document.addEventListener('visibilitychange', sync);
+new IntersectionObserver(([entry]) => {
+  visible = entry.isIntersecting;
+  sync();
+}).observe(intro.parentElement);
+</script>
+</html>
