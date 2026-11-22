@@ -1,6 +1,6 @@
 # Comment le coworking Illith a été réalisé
 
-Le film livré contient 2 157 images à 24 i/s. Dans la scène de production, la plage va de 101 à 2257 inclus. Le temps vidéo d’une image Blender se calcule avec `(image - 101) / 24`. La boucle reprend les images 2186 à 2257, soit 72 images et trois secondes. Le film et la boucle de visionnage figurent dans la [vitrine](https://github.com/ohvignas/illith-diorama/tree/main/showcase).
+Le film livré contient 2 157 images à 24 i/s. Dans la scène de production, la plage va de 101 à 2257 inclus. Le temps vidéo d’une image Blender se calcule avec `(image - 101) / 24`. La boucle reprend les images 2186 à 2257, soit 72 images et trois secondes. Le film et la boucle de visionnage figurent dans la [vitrine](https://github.com/ohvignas/isometric-diorama-studio/tree/main/showcase).
 
 | Passage | Méthode retenue et contrôle |
 | --- | --- |
@@ -18,4 +18,6 @@ La marche finale reprend l’Action `walk` de Xbot, corrigée aux appuis sur la 
 
 Pour le hero, le film complet et sa boucle ont été livrés en 720p et 1080p avec alpha, avec une version 2560 × 1440 en réserve. La version de lecture H.264 possède un fond. Le projet a été contrôlé dans Chrome et avec le décodeur HEVC Apple. Lors du changement de livraison de 4K vers 1440p, les 1 136 premières images ont été réduites depuis les rendus UHD. La suite a réutilisé les mouvements approuvés en 1080p sur des décors recalculés en 1440p.
 
-Les [fichiers de démonstration](https://github.com/ohvignas/illith-diorama/tree/main/showcase) comprennent le film, le poster et la boucle du coworking. Le [fichier Blender éditable](../examples/atelier.blend) est un nouvel exercice reproductible. Il tient dans le dépôt et utilise un mannequin original et des matériaux créés sur place.
+Les [fichiers de démonstration](https://github.com/ohvignas/isometric-diorama-studio/tree/main/showcase) comprennent le film, le poster et la boucle du coworking. Le [fichier Blender éditable](../examples/atelier.blend) est un nouvel exercice reproductible. Il tient dans le dépôt et utilise un mannequin original et des matériaux créés sur place.
+
+La [scène Blender de production](https://github.com/ohvignas/isometric-diorama-studio/releases/download/v1.1.0/Coworking-Illith-source.blend) contient le coworking complet avec les trois personnages. La [visite illustrée](https://github.com/ohvignas/isometric-diorama-studio/tree/main/showcase/scene) donne les images à explorer.

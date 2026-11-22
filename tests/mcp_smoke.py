@@ -10,7 +10,7 @@ import sys
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
-ROOT = Path(__file__).resolve().parents[1] / "plugins/illith-diorama"
+ROOT = Path(__file__).resolve().parents[1] / "plugins/isometric-diorama-studio"
 
 
 async def check(name, config):

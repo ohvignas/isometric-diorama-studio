@@ -1,0 +1,77 @@
+{
+  "scene": "Illith · Studio de création",
+  "blender": "5.2.3 LTS",
+  "frames": [
+    101,
+    2257
+  ],
+  "fps": 24.0,
+  "camera": "Coworking · plan fixe sur l’entrée",
+  "objects": 3713,
+  "packed_images": 297,
+  "character_atlases": {
+    "illith-clavier-atlas4k-basecolor": [
+      4096,
+      4096
+    ],
+    "illith-conceptrice-atlas4k-basecolor": [
+      4096,
+      4096
+    ],
+    "illith-conceptrice-atlas4k-basecolor.001": [
+      4096,
+      4096
+    ],
+    "illith-souris-atlas4k-basecolor": [
+      4096,
+      4096
+    ]
+  },
+  "rigs": {
+    "Aquarium · compagnon récifal · squelette": 7,
+    "Aquarium · poisson récifal · squelette": 7,
+    "Armature": 65,
+    "Armature.001": 53,
+    "Armature.002": 51,
+    "Armature.003": 55,
+    "Entrée · armature de la conceptrice": 55
+  },
+  "poses": {
+    "185": "1269f4eb19e3fa621699b67fd63cc6b70ae6a6a681b29fa821a7d3202b385291",
+    "233": "967db504691227fdf80bae3fcde37d8bfa2631f35bf62a2c0ff5fa9e2bf6c7c1",
+    "905": "4c50f606fc96082f5052c47e445516e7111eefe57fff45e27a3b884a833da599",
+    "1453": "28a8c6d9e7735b318b2e62b6b850bbb6fa98a962a891c3092da77ae4dd7b976d",
+    "2186": "417a14c1610436f78fc6a03d16f3652a8734e45f3883773fa303837cba68f4b8"
+  },
+  "animation": {
+    "actions": 865,
+    "curves": 3995,
+    "keys": 1721055,
+    "sha256": "bf275fe66244780e4a6dfe0745130e9db2a513ea8984fa575558e446144aec38"
+  },
+  "markers": {
+    "Le coworking se construit": 101,
+    "Construction complète": 185,
+    "La conceptrice pousse la porte vers l’intérieur": 233,
+    "Le regard à l’entrée": 397,
+    "Conversation": 517,
+    "Baby-foot": 780,
+    "But": 1220,
+    "Il nourrit le poisson": 1453,
+    "Le poisson saute": 1467,
+    "Elle se lève pour choisir un livre": 1573,
+    "Il montre l’écran": 1605,
+    "Le choix du livre": 1770,
+    "L’espresso coule": 1852,
+    "Lecture au fauteuil": 1871,
+    "Il boit son café": 1919,
+    "Elle quitte le fauteuil": 1991,
+    "Retour de la conceptrice au bureau": 2165,
+    "Boucle des trois postes": 2186,
+    "Enseigne • premier amorçage": 187,
+    "Aquarium • démarrage de la rampe": 228,
+    "Éclairage • liseuse puis autres lampes": 253,
+    "Éclairage • régime établi": 290,
+    "Claude accompagne le collègue bouclé": 1262
+  }
+}

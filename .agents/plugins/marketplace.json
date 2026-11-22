@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "illith-diorama",
+      "name": "isometric-diorama-studio",
       "source": {
         "source": "local",
-        "path": "./plugins/illith-diorama"
+        "path": "./plugins/isometric-diorama-studio"
       },
       "policy": {
         "installation": "AVAILABLE",

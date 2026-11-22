@@ -1,16 +1,16 @@
 {
-  "name": "illith-diorama",
-  "version": "1.0.0",
+  "name": "isometric-diorama-studio",
+  "version": "1.1.0",
   "description": "Créer et animer des décors miniatures dans Blender avec Tripo, contrôler les mouvements humains et exporter un hero web transparent.",
   "author": {
     "name": "Illith"
   },
-  "homepage": "https://github.com/ohvignas/illith-diorama",
-  "repository": "https://github.com/ohvignas/illith-diorama",
+  "homepage": "https://github.com/ohvignas/isometric-diorama-studio",
+  "repository": "https://github.com/ohvignas/isometric-diorama-studio",
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
-    "displayName": "Illith Diorama",
+    "displayName": "Isometric Diorama Studio",
     "shortDescription": "Décors 3D et animation humaine",
     "developerName": "Illith",
     "category": "Creativity",

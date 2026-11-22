@@ -6,7 +6,7 @@ import re
 from urllib.parse import unquote
 
 repo = Path(__file__).resolve().parents[1]
-plugin = repo / "plugins/illith-diorama"
+plugin = repo / "plugins/isometric-diorama-studio"
 
 
 def load(path):
@@ -16,7 +16,7 @@ def load(path):
 name = plugin.name
 for f in ("plugin.json", ".codex-plugin/plugin.json", ".claude-plugin/plugin.json"):
     manifest = load(plugin / f)
-    assert manifest["name"] == name and manifest["version"] == "1.0.0"
+    assert manifest["name"] == name and manifest["version"] == "1.1.0"
 for f in (".agents/plugins/marketplace.json", ".claude-plugin/marketplace.json"):
     item = load(repo / f)["plugins"][0]
     src = item["source"]

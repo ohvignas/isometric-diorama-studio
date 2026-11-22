@@ -1,64 +1,62 @@
-# Illith Diorama
+# Isometric Diorama Studio
 
-**Un plugin pour Codex et Claude Code qui transforme une scène Blender en décor miniature animé.** Il relie Tripo au poste de création, fournit des outils pour transférer et contrôler les mouvements humains, puis exporte un film et une boucle transparente pour le web.
+[![Isometric Diorama Studio. La maquette du coworking Illith vue par la caméra du film.](showcase/guide/couverture.webp)](showcase/scene/README.md)
 
-[![Les six premières secondes du coworking Illith, de la construction à l’arrivée dans l’allée](showcase/construction.gif)](showcase/coworking-1080.mp4)
+**Une pièce se construit sous tes yeux.** Une collègue pousse la porte, deux joueurs suivent la balle au baby-foot et un poisson bondit hors de l’eau. Ce dépôt te donne la scène Blender du film et le plugin qui reprend la méthode de fabrication pour créer tes propres miniatures avec Codex ou Claude Code.
 
-[Voir le film complet · 1 min 30](showcase/coworking-1080.mp4) · [Voir la boucle aux bureaux · 3 s](showcase/boucle-bureau.mp4) · [Ouvrir le modèle Blender d’exercice](plugins/illith-diorama/examples/atelier.blend) · [Parcourir le carnet des sources](plugins/illith-diorama/docs/sources.md)
+**[Télécharger la scène complète · 171 Mo](https://github.com/ohvignas/isometric-diorama-studio/releases/download/v1.1.0/Coworking-Illith-source.blend)**　·　**[Voir le film · 1 min 30](showcase/coworking-1080.mp4)**　·　**[Installer le plugin](#installer-le-plugin)**
 
-## Installer dans son agent
+## Ta première visite dans Blender
 
-Le catalogue s’appelle `illith-tools`. Choisir la commande de son client, puis ouvrir une nouvelle conversation.
+1. Télécharge **Coworking-Illith-source.blend** et ouvre-le dans **Blender 5.2.3 LTS**, la version utilisée pour le contrôle. Les trois personnages, leurs squelettes, les meubles et les **297 textures** sont dans ce fichier. Blender seul suffit pour explorer le film.
+2. Dans la barre de temps en bas, clique sur le **numéro d’image courant**, saisis **101**, puis appuie sur **Entrée**. Appuie sur **Espace** pour voir la construction. Une seconde pression met la lecture en pause.
+3. Essaie **233** pour voir la conceptrice pousser la porte ou **905** pour observer les joueurs. Pour voir la lumière, les matières et le cadrage final sur une seule image, choisis **Rendu → Rendre l’image**. [Visite guidée de la scène](showcase/scene/README.md)
 
-| Codex | Claude Code |
-| --- | --- |
-| `codex plugin marketplace add ohvignas/illith-diorama` | `claude plugin marketplace add ohvignas/illith-diorama` |
-| `codex plugin add illith-diorama@illith-tools` | `claude plugin install illith-diorama@illith-tools` |
+[![Trois images du film. À 143 le décor se construit, à 543 les collègues discutent et à 2213 le trio travaille.](showcase/guide/chronologie.webp)](showcase/scene/README.md)
 
-Pour utiliser les deux connecteurs fournis, installer **Blender 5.1+**, son extension officielle **Blender Lab MCP**, le serveur local du même projet et le CLI officiel **Tripo** sous Node.js 20+. Pour la livraison vidéo, installer **FFmpeg** avec libx264 et libvpx, et **Python 3.10+** pour les commandes du kit. Le premier exercice Blender fonctionne sans compte Tripo. [Installation des connecteurs, commandes et connexion Studio/API](plugins/illith-diorama/docs/connexion.md)
+**Tu veux modifier quelque chose pour la première fois ?** Ouvre le petit atelier, enregistre une copie, sélectionne un meuble dans la vue 3D et appuie sur **G**, puis **X** pour le déplacer le long d’un axe. Clique pour poser le meuble. Le générateur Python permet aussi de reconstruire cet exercice depuis zéro. [Télécharger l’atelier léger](https://github.com/ohvignas/isometric-diorama-studio/releases/download/v1.1.0/atelier.blend) · [Suivre l’exercice](plugins/isometric-diorama-studio/docs/atelier.md)
 
-## Premier essai
+## Installer le plugin
 
-Dans une conversation avec le plugin activé, coller cette demande.
+Choisis le terminal de ton client. Les deux commandes ajoutent le catalogue **illith-tools**, puis le plugin.
 
-> Ouvre une copie de l’atelier d’exemple. Identifie son mannequin, ses Actions et sa caméra. Rends huit images du personnage au clavier. Montre-moi le plan fixe et vérifie que le bureau reste immobile. Pour l’instant, travaille uniquement dans Blender.
-
-Pour essayer le même parcours au terminal, commencer dans un clone.
+**Codex**
 
 ```sh
-git clone https://github.com/ohvignas/illith-diorama.git
-cd illith-diorama/plugins/illith-diorama
-python3 scripts/diorama.py doctor
-python3 scripts/diorama.py inspect examples/atelier.blend --report work/inventaire.json
-python3 scripts/diorama.py render examples/atelier.blend work/images --first 73 --last 80 --scale 50 --samples 8
+codex plugin marketplace add ohvignas/isometric-diorama-studio
+codex plugin add isometric-diorama-studio@illith-tools
 ```
 
-Le tutoriel complet ajoute un modèle, capture une prestation sur le mannequin et exporte deux clips indépendants. [Suivre l’atelier](plugins/illith-diorama/docs/atelier.md)
+**Claude Code**
 
-## Six skills, de la mise en scène à la livraison
+```sh
+claude plugin marketplace add ohvignas/isometric-diorama-studio
+claude plugin install isometric-diorama-studio@illith-tools
+```
 
-| Skill | Ce qu’elle apporte |
+Ouvre une nouvelle conversation. Pour agir sur Blender, installe le connecteur **Blender Lab** et active son extension dans Blender. Pour générer un nouveau personnage, connecte le compte **Tripo Studio** ou le compte **API** qui détient tes crédits. Pour exporter la vidéo, le kit utilise FFmpeg. [Brancher les outils pas à pas](plugins/isometric-diorama-studio/docs/connexion.md)
+
+**Premier prompt à copier**
+
+> Utilise Isometric Diorama Studio. Ouvre une copie de l’atelier d’exercice. Montre-moi la caméra et le mannequin. Rends une image de ses mains sur le clavier, puis indique quel os sélectionner pour lever sa main droite. Travaille avec les modèles déjà fournis.
+
+## Comment les gestes ont été construits
+
+Dans la scène, va à l’image **905**. Les visages des deux joueurs suivent la balle. Passe à **1248**, après le but, et leurs regards se rejoignent. La planche de contrôle montre les yeux en gros plan et la direction suivie par chaque joueur. [Voir la planche des regards](showcase/guide/regards-babyfoot.jpg) · [Lire le carnet de fabrication](plugins/isometric-diorama-studio/docs/cas-illith.md)
+
+| Ce que tu veux faire | Guide du plugin |
 | --- | --- |
-| [Cadrage et scénario](plugins/illith-diorama/skills/diorama-cadrage/SKILL.md) | Plan de caméra commun, trajectoires, chronologie et dernier état de boucle |
-| [Personnage Tripo](plugins/illith-diorama/skills/tripo-personnage/SKILL.md) | Smart Mesh P2.0, segmentation équilibrée, rig humanoïde, coût, UV et atlas |
-| [Mouvement humain](plugins/illith-diorama/skills/blender-tripo-mouvement/SKILL.md) | Capture du donneur évalué, transfert FK, comparaison des rotations et mesure des appuis |
-| [Décor et lumière](plugins/illith-diorama/skills/diorama-decor/SKILL.md) | Mobilier à l’échelle, PBR, néon, plantes et construction par éléments |
-| [Interactions](plugins/illith-diorama/skills/diorama-interactions/SKILL.md) | Contacts main–poignée, chaises, regards, accessoires et attribution des bulles |
-| [Livraison web](plugins/illith-diorama/skills/diorama-livraison/SKILL.md) | Ombre et transparence, H.264, VP9, HEVC alpha Apple et passage film–boucle |
+| Choisir le cadre, le trajet et la dernière pose | [Cadrage et scénario](plugins/isometric-diorama-studio/skills/diorama-cadrage/SKILL.md) |
+| Créer un personnage avec Smart Mesh P2.0 et vérifier sa texture | [Personnage Tripo](plugins/isometric-diorama-studio/skills/tripo-personnage/SKILL.md) |
+| Adapter la marche à une autre taille, contrôler les pieds et les coudes | [Mouvement humain](plugins/isometric-diorama-studio/skills/blender-tripo-mouvement/SKILL.md) |
+| Construire la pièce, placer les meubles, éclairer le néon | [Décor et éclairage](plugins/isometric-diorama-studio/skills/diorama-decor/SKILL.md) |
+| Faire saisir une poignée ou asseoir un personnage | [Interactions](plugins/isometric-diorama-studio/skills/diorama-interactions/SKILL.md) |
+| Exporter un film transparent avec son ombre et une boucle web | [Livraison web](plugins/isometric-diorama-studio/skills/diorama-livraison/SKILL.md) |
 
-Le [guide des agents](AGENTS.md) décrit la conduite du travail. Claude Code dispose également de l’[agent de revue d’animation](plugins/illith-diorama/agents/regie-animation.md).
+## Ressources du projet
 
-## Ce que le film nous a appris
+- **Pour regarder** · [Construction en GIF](showcase/construction.gif) · [Film 1080p](showcase/coworking-1080.mp4) · [Boucle finale de trois secondes](showcase/boucle-bureau.mp4)
+- **Pour fabriquer** · [113 sources et tutoriels](plugins/isometric-diorama-studio/docs/sources.md) · [Origine des meubles, plantes, livres et textures](plugins/isometric-diorama-studio/docs/credits.md) · [Poisson 3D d’exercice](plugins/isometric-diorama-studio/examples/PROVENANCE.md)
+- **Pour vérifier** · [Contrôle de la scène publiée](showcase/scene/controle.json) · [Tests des connecteurs, des mouvements et du lecteur](tests/README.md) · [Instructions des agents](AGENTS.md)
 
-Une marche peut sembler correcte au niveau du squelette alors que la semelle glisse sur le parquet. Nous avons repris la marche approuvée de la conceptrice **après** correction des appuis, puis transféré cette prestation sur ses collègues. Pour le lever de chaise, une capture distincte a fourni le transfert de poids. La vérification porte sur la chaussure, le pantalon, les mains et le coussin évalués dans Blender.
-
-Au baby-foot, la cible du regard passe de la balle au visage du collègue. À l’entrée, la poignée se met en mouvement au moment où la main l’atteint. À la fin, un fichier de trois secondes maintient les trois personnages au clavier. Une nouvelle visite du site relance la construction. [Lire l’étude de cas et la chronologie](plugins/illith-diorama/docs/cas-illith.md)
-
-## Exemples et ressources
-
-- **Atelier Blender éditable** · caméra orthographique, construction échelonnée, mannequin FK, cycle au clavier, plantes, mobilier, receveur d’ombre et marqueur du début de boucle. [Fichier Blender](plugins/illith-diorama/examples/atelier.blend) · [Générateur](plugins/illith-diorama/templates/atelier.py)
-- **Import d’un modèle de bibliothèque** · poisson récifal avec armature, textures et animations. [GLB de démonstration](plugins/illith-diorama/examples/reef-fish.glb) · [Provenance](plugins/illith-diorama/examples/PROVENANCE.md)
-- **Rendu de production** · film Illith en 1080p, boucle autonome et poster. [Vitrine](showcase/) · [Crédits du mobilier, des matières et des personnages](plugins/illith-diorama/docs/credits.md)
-- **Validation et installation** · handshake des deux serveurs MCP, vérification des fichiers, contrôle FK et contacts, exports testés. [Reproduire les contrôles](tests/README.md)
-
-Le code original et l’exercice d’atelier sont distribués sous MIT. Le poisson de Tevy est sous CC0. Les rendus du coworking présentent le travail d’Illith, avec son identité et ses éléments sous droits distincts. [Licence](LICENSE) · [Crédits](plugins/illith-diorama/docs/credits.md)
+Le logiciel et le petit atelier sont sous licence MIT. Le coworking complet est partagé pour ouvrir la scène et étudier sa fabrication. Les décors de bibliothèque, captures de mouvement, illustrations, personnages et marques de la production ont leurs propres conditions. [Licence du code](LICENSE) · [Provenance de la scène](showcase/scene/README.md)

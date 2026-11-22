@@ -1,6 +1,6 @@
 # Crédits des objets du coworking
 
-Relevés de production de deux étapes successives du décor. La dernière version visible se trouve dans la [vitrine du film](https://github.com/ohvignas/illith-diorama/tree/main/showcase). Le scénario et la provenance des dernières prises sont décrits dans le [cas Illith](cas-illith.md).
+Relevés de production de deux étapes successives du décor. La dernière version visible se trouve dans la [vitrine du film](https://github.com/ohvignas/isometric-diorama-studio/tree/main/showcase). Le scénario et la provenance des dernières prises sont décrits dans le [cas Illith](cas-illith.md).
 
 ## Mobilier final et modifications
 

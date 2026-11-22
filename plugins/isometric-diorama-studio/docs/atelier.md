@@ -1,6 +1,6 @@
 # Du fichier vierge au film et à sa boucle
 
-Les commandes suivantes partent du dossier `plugins/illith-diorama` d’un clone. Python 3.10+, Blender et FFmpeg avec libx264/libvpx sont nécessaires pour suivre tout l’exercice. Les dossiers de sortie doivent être nouveaux. Le template est entièrement local.
+Les commandes suivantes partent du dossier `plugins/isometric-diorama-studio` d’un clone. Python 3.10+, Blender et FFmpeg avec libx264/libvpx sont nécessaires pour suivre tout l’exercice. Les dossiers de sortie doivent être nouveaux. Le template est entièrement local.
 
 ```sh
 python3 scripts/diorama.py doctor
